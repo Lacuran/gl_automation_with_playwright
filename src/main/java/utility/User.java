@@ -2,6 +2,7 @@ package utility;
 
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +11,7 @@ import java.io.FileReader;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class User {
 
   private String firstName;
@@ -19,14 +21,6 @@ public class User {
   private String password;
   private String confirmation;
 
-  public User(String firstName, String middleName, String lastName, String email, String password, String confirmation) {
-    this.firstName = firstName;
-    this.middleName = middleName;
-    this.lastName = lastName;
-    this.email = email;
-    this.password = password;
-    this.confirmation = confirmation;
-  }
 
   public static User createUserFrom(String url) {
     try {
