@@ -17,4 +17,8 @@ public class CommonPageElements extends BasePage {
   public CommonPageElements(Page page) {
     super(page);
   }
+
+  public String getPageTitle() {
+    return getPage().title();
+  }
 }

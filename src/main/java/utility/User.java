@@ -24,7 +24,7 @@ public class User {
 
   public static User createUserFrom(String url) {
     try {
-      FileReader fileReader = new FileReader("src/test/java/utility/" + url);
+      FileReader fileReader = new FileReader("src/test/userdata/" + url);
       JsonReader reader = new JsonReader(fileReader);
       return new Gson().fromJson(reader, User.class);
     } catch (FileNotFoundException e) {
@@ -32,8 +32,4 @@ public class User {
     }
   }
 
-  public User setEmail(String email) {
-    this.email = email;
-    return this;
-  }
 }

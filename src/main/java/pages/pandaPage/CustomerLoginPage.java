@@ -19,14 +19,21 @@ public class CustomerLoginPage extends BasePage {
   @Find("send2")
   Locator loginButton;
 
+
   public CustomerLoginPage(Page page) {
     super(page);
   }
 
   public CustomerLoginPage fillingLoginData(User user) {
+    Locator[] loginAttempt = {loginEmail, loginPassword};
     String[] loginData = {user.getEmail(), user.getPassword()};
     IntStream.range(0, loginData.length)
-        .forEach(i -> driver.findElement(loginID[i]).sendKeys(loginData[i]));
+        .forEach(i -> loginAttempt[i].fill(loginData[i]));
     return this;
+  }
+
+  public MyAccountPage clickLoginButton() {
+    loginButton.click();
+    return new MyAccountPage(getPage());
   }
 }
