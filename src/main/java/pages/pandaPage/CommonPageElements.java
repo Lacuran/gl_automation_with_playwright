@@ -4,7 +4,9 @@ import base.page.BasePage;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import io.github.uchagani.stagehand.annotations.Find;
+import io.github.uchagani.stagehand.annotations.PageObject;
 
+@PageObject
 public class CommonPageElements extends BasePage {
   @Find(".link-wishlist")
   Locator addToWishListButton; /*By addToWishListButton = RelativeLocator.with(By.cssSelector(".link-wishlist"))

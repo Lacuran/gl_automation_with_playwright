@@ -18,8 +18,7 @@ public class MainPage extends BasePage {
   @Find("[data-target-element='#header-account']")
   Locator accountCssSelector;
 
-  @Under("accountCssSelector")
-  @Find("[title='My Account']")
+  @Find("#header-account > div > ul > li.first > a")
   Locator myAccountLink;
 
   @Find("[title='Advanced Search']")

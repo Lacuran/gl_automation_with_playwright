@@ -17,7 +17,9 @@ public class LoginTest extends BaseTestSetup {
   public void verifyIfUserIsLoggedSuccessfully() {
     final String expectedWelcomeMsg = "Hello, Kornel Maybe Test!";
     MainPage mainPage = PageFactory.create(MainPage.class, getPage());
-    MyAccountPage myAccountPage = mainPage.clickMyAccountLink().fillingLoginData(user1).clickLoginButton();
+    MyAccountPage myAccountPage = PageFactory.create(MyAccountPage.class, getPage());
+
+    mainPage.clickMyAccountLink().fillingLoginData(user1).clickLoginButton();
 
     assertEquals(expectedWelcomeMsg, myAccountPage.getWelcomeMsg());
   }
