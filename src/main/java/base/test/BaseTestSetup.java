@@ -7,6 +7,11 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import utility.LaunchOptions;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Slf4j
 @Getter
@@ -20,8 +25,19 @@ public class BaseTestSetup {
 
   @BeforeAll
   static void launchBrowser() {
+    List<String> launchOptions = Arrays.asList(
+        "--start-maximized",
+        "--disable-web-security",
+        "--allow-running-insecure-content",
+        "--ignore-certificate-errors",
+        "--remote-allow-origins=*",
+        "--disable-site-isolation-trials",
+        "--disable-features=IsolateOrigins,site-per-process",
+        "--disable-popup-blocking"
+    );
+
     playwright = Playwright.create();
-    browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+    browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setArgs(launchOptions));
   }
 
   @AfterAll
@@ -30,14 +46,14 @@ public class BaseTestSetup {
   }
 
   @BeforeEach
-  void createContextAndPage() {
+  public void createContextAndPage() {
     context = browser.newContext();
     page = context.newPage();
     page.navigate(URL);
   }
 
   @AfterEach
-  void closeContext() {
+  public void closeContext() {
     context.close();
   }
 }

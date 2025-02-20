@@ -25,6 +25,7 @@ public class LoginTest extends BaseTestSetup {
     mainPage.clickMyAccountLink();
     customerLoginPage.fillingLoginData(user1);
     customerLoginPage.clickLoginButton();
+    customerLoginPage.clickSecurityButton();
 
     assertEquals(expectedWelcomeMsg, myAccountPage.getWelcomeMsg());
   }
