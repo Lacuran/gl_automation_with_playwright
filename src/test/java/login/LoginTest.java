@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoginTest extends BaseTestSetup {
 
+
   private final User user1 = User.createUserFrom("Userdata1.json");
 
   @Test
