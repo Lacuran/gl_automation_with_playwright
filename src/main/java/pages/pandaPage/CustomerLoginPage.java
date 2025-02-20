@@ -26,16 +26,12 @@ public class CustomerLoginPage extends BasePage {
     super(page);
   }
 
-  public CustomerLoginPage fillingLoginData(User user) {
-    Locator[] loginAttempt = {loginEmail, loginPassword};
-    String[] loginData = {user.getEmail(), user.getPassword()};
-    IntStream.range(0, loginData.length)
-        .forEach(i -> loginAttempt[i].fill(loginData[i]));
-    return this;
+  public void fillingLoginData(User user) {
+    loginEmail.fill(user.getEmail());
+    loginPassword.fill(user.getEmail());
   }
 
-  public MyAccountPage clickLoginButton() {
+  public void clickLoginButton() {
     loginButton.click();
-    return new MyAccountPage(getPage());
   }
 }

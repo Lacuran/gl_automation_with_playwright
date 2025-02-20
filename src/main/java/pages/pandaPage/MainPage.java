@@ -28,9 +28,8 @@ public class MainPage extends BasePage {
     super(page);
   }
 
-  public CustomerLoginPage clickMyAccountLink() {
+  public void clickMyAccountLink() {
     accountCssSelector.click();
     myAccountLink.click();
-    return new CustomerLoginPage(getPage());
   }
 }
