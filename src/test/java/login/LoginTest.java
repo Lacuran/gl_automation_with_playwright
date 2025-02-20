@@ -1,7 +1,7 @@
 package login;
 
+import base.page.BasePageFactory;
 import base.test.BaseTestSetup;
-import io.github.uchagani.stagehand.PageFactory;
 import org.junit.jupiter.api.Test;
 import pages.pandaPage.MainPage;
 import pages.pandaPage.MyAccountPage;
@@ -11,8 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoginTest extends BaseTestSetup {
 
-  MainPage mainPage;
-  MyAccountPage myAccountPage;
+  MainPage mainPage = BasePageFactory.create(MainPage.class, getPage());
+  MyAccountPage myAccountPage = BasePageFactory.create(MyAccountPage.class, getPage());
 
   private final User user1 = User.createUserFrom("Userdata1.json");
 
