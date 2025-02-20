@@ -11,15 +11,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoginTest extends BaseTestSetup {
 
-  MainPage mainPage = BasePageFactory.create(MainPage.class, getPage());
-  MyAccountPage myAccountPage = BasePageFactory.create(MyAccountPage.class, getPage());
+
 
   private final User user1 = User.createUserFrom("Userdata1.json");
 
   @Test
   public void verifyIfUserIsLoggedSuccessfully() {
     final String expectedWelcomeMsg = "Hello, Kornel Maybe Test!";
-
+    MainPage mainPage = BasePageFactory.create(MainPage.class, getPage());
+    MyAccountPage myAccountPage = BasePageFactory.create(MyAccountPage.class, getPage());
     mainPage.clickMyAccountLink().fillingLoginData(user1).clickLoginButton();
 
     assertEquals(expectedWelcomeMsg, myAccountPage.getWelcomeMsg());
