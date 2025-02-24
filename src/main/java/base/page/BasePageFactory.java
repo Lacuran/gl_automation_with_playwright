@@ -1,11 +1,27 @@
 package base.page;
 
 import com.microsoft.playwright.Page;
-import io.github.uchagani.stagehand.PageFactory;
+import lombok.Getter;
+import pages.pandaPage.CustomerLoginPage;
+import pages.pandaPage.MainPage;
+import pages.pandaPage.MyAccountPage;
 
-public class BasePageFactory {
-  public static <T> T create(Class<T> pageClass, Page page) {
-    return PageFactory.create(pageClass, page);
+import static io.github.uchagani.stagehand.PageFactory.create;
+
+@Getter
+public class BasePageFactory extends BasePage{
+
+  private final MainPage mainPage;
+  private final CustomerLoginPage customerLoginPage;
+  private final MyAccountPage myAccountPage;
+
+  public BasePageFactory(Page page) {
+    super(page);
+    mainPage = create(MainPage.class, getPage());
+    customerLoginPage = create(CustomerLoginPage.class, getPage());
+    myAccountPage = create(MyAccountPage.class, getPage());
   }
+
+
 
 }
