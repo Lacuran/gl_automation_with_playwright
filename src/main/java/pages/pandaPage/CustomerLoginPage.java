@@ -24,7 +24,7 @@ public class CustomerLoginPage extends BasePage {
   Locator loginPassword;
   @Find("#send2")
   Locator loginButton;
-  @Find("//*[@id=proceed-button]")
+  @Find("//*[@id=\"proceed-button\"]")
   Locator securityProceedButton;
 
 
@@ -34,7 +34,7 @@ public class CustomerLoginPage extends BasePage {
 
   public void fillingLoginData(User user) {
     loginEmail.fill(user.getEmail());
-    loginPassword.fill(user.getEmail());
+    loginPassword.fill(user.getPassword());
   }
 
   public void clickLoginButton() {

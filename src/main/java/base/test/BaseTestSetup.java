@@ -1,5 +1,6 @@
 package base.test;
 
+import base.page.BasePageFactory;
 import com.microsoft.playwright.*;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +22,7 @@ public class BaseTestSetup {
   private static Browser browser;
   private BrowserContext context;
   private Page page;
+  private BasePageFactory basePageFactory;
 
 
   @BeforeAll
@@ -50,6 +52,7 @@ public class BaseTestSetup {
     context = browser.newContext();
     page = context.newPage();
     page.navigate(URL);
+    basePageFactory = new BasePageFactory(page);
   }
 
   @AfterEach
