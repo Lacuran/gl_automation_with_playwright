@@ -1,6 +1,5 @@
 package login;
 
-import base.page.BasePageFactory;
 import base.test.BaseTestSetup;
 import org.junit.jupiter.api.Test;
 import utility.User;
