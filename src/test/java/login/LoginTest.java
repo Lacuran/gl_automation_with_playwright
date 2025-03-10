@@ -15,11 +15,27 @@ public class LoginTest extends BaseTestSetup {
   public void verifyIfUserIsLoggedSuccessfully() {
     final String expectedWelcomeMsg = "Hello, Kornel Maybe Test!";
 
-    getBasePageFactory().getMainPage().clickMyAccountLink();
-    getBasePageFactory().getCustomerLoginPage().fillingLoginData(user1);
-    getBasePageFactory().getCustomerLoginPage().clickLoginButton();
-    getBasePageFactory().getCustomerLoginPage().clickSecurityButton();
+    loginUser(user1);
 
     assertEquals(expectedWelcomeMsg, getBasePageFactory().getMyAccountPage().getWelcomeMsg());
+  }
+
+
+
+  @Test
+  public void logOutUser() {
+    final String expectedPageTitle = "Home Page";
+
+    loginUser(user1);
+    getBasePageFactory().getMyAccountPage().logOut();
+    //TODO: add validation
+
+  }
+
+  private void loginUser(User user) {
+    getBasePageFactory().getMainPage().clickMyAccountLink();
+    getBasePageFactory().getCustomerLoginPage().fillingLoginData(user);
+    getBasePageFactory().getCustomerLoginPage().clickLoginButton();
+    getBasePageFactory().getCustomerLoginPage().clickSecurityButton();
   }
 }

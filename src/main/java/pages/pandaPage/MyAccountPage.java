@@ -10,6 +10,7 @@ public class MyAccountPage extends CommonPageElements {
 
   @Find(".hello")
   Locator welcomeMsg;
+  //TODO: add locators
 
 
   public MyAccountPage(Page page) {
@@ -18,5 +19,9 @@ public class MyAccountPage extends CommonPageElements {
 
   public String getWelcomeMsg() {
     return welcomeMsg.textContent();
+  }
+
+  public void logOut(){
+
   }
 }
