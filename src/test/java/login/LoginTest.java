@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class LoginTest extends BaseTestSetup {
 
 
-  User user1 = User.createUserFrom("UserData1.json");
+  User user1 = User.createUserFrom("UserData1.json", "user1");
 
   @Test
   public void verifyIfUserIsLoggedSuccessfully() {
@@ -17,23 +17,25 @@ public class LoginTest extends BaseTestSetup {
 
     loginUser(user1);
 
-    assertEquals(expectedWelcomeMsg, getBasePageFactory().getMyAccountPage().getWelcomeMsg());
+    assertEquals(expectedWelcomeMsg, getBasePageFactory().getMyAccountPage().getWelcomeMsg().textContent());
   }
 
 
 
   @Test
   public void logOutUser() {
-    final String expectedPageTitle = "Home Page";
+    final String expectedPageTitle = "Magento Commerce";
 
     loginUser(user1);
-    getBasePageFactory().getMyAccountPage().logOut();
-    //TODO: add validation
+    getBasePageFactory().getMyAccountPage().getAccountSelector().click();
+    getBasePageFactory().getMyAccountPage().getLogOut().click();
+    assertEquals(expectedPageTitle, getBasePageFactory().getMyAccountPage().getPageTitle(), "Title don't match, please check again");
 
   }
 
   private void loginUser(User user) {
-    getBasePageFactory().getMainPage().clickMyAccountLink();
+    getBasePageFactory().getMainPage().getAccountSelector().click();
+    getBasePageFactory().getMainPage().getMyAccountLink().click();
     getBasePageFactory().getCustomerLoginPage().fillingLoginData(user);
     getBasePageFactory().getCustomerLoginPage().clickLoginButton();
     getBasePageFactory().getCustomerLoginPage().clickSecurityButton();

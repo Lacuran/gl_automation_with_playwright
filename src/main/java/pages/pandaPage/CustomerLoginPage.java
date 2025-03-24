@@ -1,6 +1,5 @@
 package pages.pandaPage;
 
-import base.page.BasePage;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import io.github.uchagani.stagehand.annotations.Find;
@@ -10,11 +9,10 @@ import org.awaitility.Awaitility;
 import utility.User;
 
 import java.time.Duration;
-import java.util.stream.IntStream;
 
 @Getter
 @PageObject
-public class CustomerLoginPage extends BasePage {
+public class CustomerLoginPage extends CommonPageElements {
 
   @Find("[title='Create an Account']")
   Locator createAccButton;
@@ -44,7 +42,7 @@ public class CustomerLoginPage extends BasePage {
   }
 
   public void clickSecurityButton() {
-    Awaitility.await().pollDelay(Duration.ofSeconds(2)).until(() -> true);
+    Awaitility.await().pollDelay(Duration.ofSeconds(1)).until(() -> true);
     securityProceedButton.click();
   }
 }

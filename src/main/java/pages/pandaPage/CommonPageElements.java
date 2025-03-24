@@ -5,7 +5,9 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import io.github.uchagani.stagehand.annotations.Find;
 import io.github.uchagani.stagehand.annotations.PageObject;
+import lombok.Getter;
 
+@Getter
 @PageObject
 public class CommonPageElements extends BasePage {
   @Find(".link-wishlist")
@@ -15,6 +17,12 @@ public class CommonPageElements extends BasePage {
   Locator myCartButton;
   @Find(".skip-account")
   Locator accountButton;
+  @Find("[data-target-element='#header-account']")
+  Locator accountSelector;
+  @Find("#header-account > div > ul > li.first > a")
+  Locator myAccountLink;
+  @Find("[title='Log Out']")
+  Locator logOut;
 
   public CommonPageElements(Page page) {
     super(page);
@@ -23,4 +31,5 @@ public class CommonPageElements extends BasePage {
   public String getPageTitle() {
     return getPage().title();
   }
+
 }
