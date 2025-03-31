@@ -13,6 +13,9 @@ public class MyAccountPage extends CommonPageElements {
   @Find(".hello")
   Locator welcomeMsg;
 
+  @Find("//strong[text()='Account Information']")
+  Locator accountInformation;
+
 
   public MyAccountPage(Page page) {
     super(page);
