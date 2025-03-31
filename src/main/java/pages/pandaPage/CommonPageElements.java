@@ -23,6 +23,12 @@ public class CommonPageElements extends BasePage {
   Locator myAccountLink;
   @Find("[title='Log Out']")
   Locator logOut;
+  @Find("//a[text()='Account Dashboard']")
+  Locator accountDashboardSelector;
+  @Find("//a[text()='Account Information']")
+  Locator accountInformationSelector;
+  @Find("//*[@id=\"proceed-button\"]")
+  Locator securityProceedButton;
 
   public CommonPageElements(Page page) {
     super(page);

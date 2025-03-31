@@ -22,8 +22,6 @@ public class CustomerLoginPage extends CommonPageElements {
   Locator loginPassword;
   @Find("#send2")
   Locator loginButton;
-  @Find("//*[@id=\"proceed-button\"]")
-  Locator securityProceedButton;
 
 
   public CustomerLoginPage(Page page) {

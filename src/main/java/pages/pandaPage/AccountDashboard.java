@@ -8,16 +8,12 @@ import lombok.Getter;
 
 @Getter
 @PageObject
-public class MyAccountPage extends CommonPageElements {
+public class AccountDashboard extends CommonPageElements {
 
   @Find(".hello")
   Locator welcomeMsg;
 
-  @Find("//strong[text()='Account Information']")
-  Locator accountInformation;
-
-
-  public MyAccountPage(Page page) {
+  public AccountDashboard(Page page) {
     super(page);
   }
 
