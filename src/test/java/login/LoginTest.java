@@ -2,6 +2,7 @@ package login;
 
 import base.test.BaseTestSetup;
 import org.junit.jupiter.api.Test;
+import pages.pandaPage.AccountInformation;
 import utility.User;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -36,29 +37,29 @@ public class LoginTest extends BaseTestSetup {
   @Test
   public void verifyEditOfUserInformation() {
 
+    final String expectedFirstName = "Aloha";
+    final String expectedMiddleName = "Middle";
+    final String expectedLastName = "Kek";
+    final String expectedWelcomeMsg = String.format("Hello, %s %s %s!", expectedFirstName, expectedMiddleName, expectedLastName);
     loginUser(user2);
 
-    getBasePageFactory().getAccountInformation().getAccountInformationSelector().click();
-    getBasePageFactory().getAccountInformation().clearDataInfo();
+    accountInformation().getAccountInformationSelector().click();
+    accountInformation().getFirstName().clear();
+    accountInformation().getFirstName().fill(expectedFirstName);
+    accountInformation().getMiddleName().clear();
+    accountInformation().getMiddleName().fill(expectedMiddleName);
+    accountInformation().getLastName().clear();
+    accountInformation().getLastName().fill(expectedLastName);
+    accountInformation().getCurrentPassword().fill(user2.getPassword());
+    accountInformation().getSaveButton().click();
+    accountInformation().clickSecurityButton();
 
+    assertEquals(expectedWelcomeMsg, getBasePageFactory().getAccountDashboard().getWelcomeMsg().textContent(), "Check welcome message");
 
-    
+  }
 
-    /*
-    String[] editInfoData = {user2.getFirstName(), user2.getMiddleName(), user2.getLastName(), user2.getPassword()};
-    String expectedSuccessMsg = "The account information has been saved.";
-    String expectedWelcomeMSG = String.format("Hello, %s %s %s!", editInfoData[0], editInfoData[1], editInfoData[2]);
-
-    MyAccountPage myAccountPage = homePage.clickMyAccountLink()
-        .fillingLoginData(user1)
-        .clickLoginButton()
-        .clickAccountInformationLink()
-        .editUserInformation(editInfoData)
-        .clickSaveButton();
-
-    log.info("Verify edit of user information");
-    assertEquals(myAccountPage.getSuccessEditInfoMSG(), expectedSuccessMsg, "Check success MSG");
-    assertEquals(myAccountPage.getWelcomeMSG(), expectedWelcomeMSG, "Check welcome MSG");*/
+  private AccountInformation accountInformation() {
+    return getBasePageFactory().getAccountInformation();
   }
 
 

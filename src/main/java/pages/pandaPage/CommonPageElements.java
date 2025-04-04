@@ -6,6 +6,9 @@ import com.microsoft.playwright.Page;
 import io.github.uchagani.stagehand.annotations.Find;
 import io.github.uchagani.stagehand.annotations.PageObject;
 import lombok.Getter;
+import org.awaitility.Awaitility;
+
+import java.time.Duration;
 
 @Getter
 @PageObject
@@ -36,6 +39,11 @@ public class CommonPageElements extends BasePage {
 
   public String getPageTitle() {
     return getPage().title();
+  }
+
+  public void clickSecurityButton() {
+    Awaitility.await().pollDelay(Duration.ofSeconds(1)).until(() -> true);
+    securityProceedButton.click();
   }
 
 }

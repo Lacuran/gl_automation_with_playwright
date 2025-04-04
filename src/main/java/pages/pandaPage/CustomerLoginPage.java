@@ -38,9 +38,4 @@ public class CustomerLoginPage extends CommonPageElements {
     loginButton.click();
 
   }
-
-  public void clickSecurityButton() {
-    Awaitility.await().pollDelay(Duration.ofSeconds(1)).until(() -> true);
-    securityProceedButton.click();
-  }
 }

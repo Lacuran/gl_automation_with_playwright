@@ -20,6 +20,8 @@ public class AccountInformation extends CommonPageElements{
   Locator accountInformationEmailField;
   @Find("#current_password")
   Locator currentPassword;
+  @Find("[title='Save']")
+  Locator saveButton;
 
   public AccountInformation(Page page) {
     super(page);
