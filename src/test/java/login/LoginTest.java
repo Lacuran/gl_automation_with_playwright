@@ -14,7 +14,7 @@ public class LoginTest extends BaseTestSetup {
 
   @Test
   public void verifyIfUserIsLoggedSuccessfully() {
-    final String expectedWelcomeMsg = "Hello, Kornel Maybe Test!";
+    final var expectedWelcomeMsg = "Hello, Kornel Maybe Test!";
 
     loginUser(user1);
 
@@ -25,7 +25,7 @@ public class LoginTest extends BaseTestSetup {
 
   @Test
   public void logOutUser() {
-    final String expectedPageTitle = "Magento Commerce";
+    final var expectedPageTitle = "Magento Commerce";
 
     loginUser(user1);
     getBasePageFactory().getAccountDashboard().getAccountSelector().click();
@@ -37,10 +37,10 @@ public class LoginTest extends BaseTestSetup {
   @Test
   public void verifyEditOfUserInformation() {
 
-    final String expectedFirstName = "Aloha";
-    final String expectedMiddleName = "Middle";
-    final String expectedLastName = "Kek";
-    final String expectedWelcomeMsg = String.format("Hello, %s %s %s!", expectedFirstName, expectedMiddleName, expectedLastName);
+    final var expectedFirstName = "Aloha";
+    final var expectedMiddleName = "Middle";
+    final var expectedLastName = "Kek";
+    final var expectedWelcomeMsg = String.format("Hello, %s %s %s!", expectedFirstName, expectedMiddleName, expectedLastName);
     loginUser(user2);
 
     accountInformation().getAccountInformationSelector().click();
