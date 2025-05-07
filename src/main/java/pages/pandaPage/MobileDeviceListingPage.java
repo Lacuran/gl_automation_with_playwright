@@ -22,7 +22,7 @@ public class MobileDeviceListingPage extends CommonPageElements{
     return mobileDeviceLocator(mobileDevice).last().innerText();
   }
 
-  private Locator mobileDeviceLocator(String mobileDevice) {
+  public Locator mobileDeviceLocator(String mobileDevice) {
     return getPage().locator("[title='" + mobileDevice + "']");
   }
 }
