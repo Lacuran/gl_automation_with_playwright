@@ -15,9 +15,9 @@ public class ProductsCostTest extends BaseTestSetup {
     var deviceCostOnMobileListingPage = getBasePageFactory().
         getMobileDeviceListingPage().
         getMobileDevicePrice(phoneName);
-    var price = getBasePageFactory().getMobileDeviceListingPage().getPriceTag().innerText();
+//    var price = getBasePageFactory().getMobileDeviceListingPage().getSonyDevicePrice().innerText();
 
-    System.out.println(price);
+//    System.out.println(price);
     System.out.println(deviceCostOnMobileListingPage);
 
   }

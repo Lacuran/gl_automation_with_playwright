@@ -4,14 +4,18 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import io.github.uchagani.stagehand.annotations.Find;
 import io.github.uchagani.stagehand.annotations.PageObject;
+import io.github.uchagani.stagehand.annotations.Under;
 import lombok.Getter;
 
 @Getter
 @PageObject
 public class MobileDeviceListingPage extends CommonPageElements{
 
-  @Find("//*[@id=\"product-price-1\"]/span")
-  Locator priceTag;
+  @Find("[title='Sony Xperia']")
+  Locator sonyDevice;
+
+  @Find("[class='price']")
+  Locator sonyDevicePrice;
 
 
   public MobileDeviceListingPage(Page page) {
