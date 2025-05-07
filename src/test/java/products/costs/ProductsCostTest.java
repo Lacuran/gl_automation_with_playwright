@@ -1,9 +1,26 @@
 package products.costs;
 
 import base.test.BaseTestSetup;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class ProductsCostTest extends BaseTestSetup {
+
+
+  @ParameterizedTest
+  @ValueSource(strings = {"Sony Xperia", "IPhone", "Samsung Galaxy"})
+  public void verifyCostOfProductInListPageAndDetailsPageTest(String phoneName) {
+
+    getBasePageFactory().getMainPage().getMobileLink().click();
+    var deviceCostOnMobileListingPage = getBasePageFactory().
+        getMobileDeviceListingPage().
+        getMobileDevicePrice(phoneName);
+    var price = getBasePageFactory().getMobileDeviceListingPage().getPriceTag().innerText();
+
+    System.out.println(price);
+    System.out.println(deviceCostOnMobileListingPage);
+
+  }
 
 
   /*@DataProvider(name = "smartphone")

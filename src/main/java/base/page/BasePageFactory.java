@@ -2,10 +2,7 @@ package base.page;
 
 import com.microsoft.playwright.Page;
 import lombok.Getter;
-import pages.pandaPage.AccountInformation;
-import pages.pandaPage.CustomerLoginPage;
-import pages.pandaPage.MainPage;
-import pages.pandaPage.AccountDashboard;
+import pages.pandaPage.*;
 
 import static io.github.uchagani.stagehand.PageFactory.create;
 
@@ -16,6 +13,7 @@ public class BasePageFactory extends BasePage{
   private final CustomerLoginPage customerLoginPage;
   private final AccountDashboard accountDashboard;
   private final AccountInformation accountInformation;
+  private final MobileDeviceListingPage mobileDeviceListingPage;
 
   public BasePageFactory(Page page) {
     super(page);
@@ -23,6 +21,7 @@ public class BasePageFactory extends BasePage{
     customerLoginPage = create(CustomerLoginPage.class, getPage());
     accountDashboard = create(AccountDashboard.class, getPage());
     accountInformation = create(AccountInformation.class, getPage());
+    mobileDeviceListingPage = create(MobileDeviceListingPage.class, getPage());
   }
 
 
