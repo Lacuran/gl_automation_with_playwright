@@ -14,6 +14,7 @@ public class BasePageFactory extends BasePage{
   private final AccountDashboard accountDashboard;
   private final AccountInformation accountInformation;
   private final MobileDeviceListingPage mobileDeviceListingPage;
+  private final ShoppingCartPage shoppingCartPage;
 
   public BasePageFactory(Page page) {
     super(page);
@@ -22,6 +23,7 @@ public class BasePageFactory extends BasePage{
     accountDashboard = create(AccountDashboard.class, getPage());
     accountInformation = create(AccountInformation.class, getPage());
     mobileDeviceListingPage = create(MobileDeviceListingPage.class, getPage());
+    shoppingCartPage = create(ShoppingCartPage.class, getPage());
   }
 
 
