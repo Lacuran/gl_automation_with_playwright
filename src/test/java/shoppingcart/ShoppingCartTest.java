@@ -8,6 +8,12 @@ public class ShoppingCartTest extends BaseTestSetup {
   @Test
   public void verifyThatYouCannotAddMoreProductInCartThanTheProductAvailableInTheStore() {
 
+    getBasePageFactory().getMainPage().getMobileLink().click();
+    getBasePageFactory().getMobileDeviceListingPage().mobileDeviceLocator("Sony Xperia").click();
+    getBasePageFactory().getMobileDeviceListingPage().getAddToCartButton().click();
+    getBasePageFactory().getMobileDeviceListingPage().clickSecurityButton();
+
+
 }
 
 

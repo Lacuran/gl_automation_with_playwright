@@ -12,6 +12,8 @@ public class MobileDeviceListingPage extends CommonPageElements{
 
   @Find(".price")
   Locator priceTag;
+  @Find(".btn-cart")
+  Locator addToCartButton;
 
 
   public MobileDeviceListingPage(Page page) {
